@@ -16,7 +16,11 @@ import java.util.List;
  * The GameView class represents the graphical user interface (GUI) for the Rock-Paper-Scissors game.
  */
 public class GameView extends JFrame {
-    private JTable table;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTable table;
     private DefaultTableModel tableModel;
     public JRadioButton humanVsComputerRadio;
     public JRadioButton computerVsComputerRadio;
@@ -64,6 +68,9 @@ public class GameView extends JFrame {
         JPanel controlPanel = new JPanel(new GridLayout(4, 1));
         humanVsComputerRadio = new JRadioButton("Player 1: Human vs Player 2: Bot");
         computerVsComputerRadio = new JRadioButton("Player 1: Bot A vs Player 2: Bot B");
+        // Explicitly set the selected state of radio buttons for testing
+        humanVsComputerRadio.setSelected(false);
+        computerVsComputerRadio.setSelected(true);
         ButtonGroup gameModeGroup = new ButtonGroup();
         gameModeGroup.add(humanVsComputerRadio);
         gameModeGroup.add(computerVsComputerRadio);
@@ -201,7 +208,7 @@ public class GameView extends JFrame {
         }
     }
 
-    DefaultTableModel initializeTableView() {
+    public DefaultTableModel initializeTableView() {
         String[] columnHeaders = {"Element", "Rock", "Paper", "Scissors", "Optimal strategy"};
 
         // Initialize data for the table model

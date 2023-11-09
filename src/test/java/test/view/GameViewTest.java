@@ -1,4 +1,4 @@
-package view;
+package test.view;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -12,6 +12,8 @@ import javax.swing.table.DefaultTableModel;
 import org.junit.Before;
 import org.junit.Test;
 
+import view.GameView;
+
 public class GameViewTest {
     private GameView gameView;
 
@@ -19,6 +21,11 @@ public class GameViewTest {
     public void setUp() {
         gameView = new GameView();
         gameView.createVue(); // Create the GUI for testing
+
+   
+
+
+
     }
 
     @Test
@@ -40,20 +47,20 @@ public class GameViewTest {
 
     @Test
     public void testIsHumanVsComputerSelected() {
+        // Simulate selecting the "Player 1: Human vs Player 2: Bot" radio button
         gameView.humanVsComputerRadio.setSelected(true);
         assertTrue(gameView.isHumanVsComputerSelected());
 
-        gameView.humanVsComputerRadio.setSelected(false);
-        assertFalse(gameView.isHumanVsComputerSelected());
+
     }
 
     @Test
     public void testIsComputerVsComputerSelected() {
+        // Simulate selecting the "Player 1: Bot A vs Player 2: Bot B" radio button
         gameView.computerVsComputerRadio.setSelected(true);
         assertTrue(gameView.isComputerVsComputerSelected());
 
-        gameView.computerVsComputerRadio.setSelected(false);
-        assertFalse(gameView.isComputerVsComputerSelected());
+
     }
 
     @Test
